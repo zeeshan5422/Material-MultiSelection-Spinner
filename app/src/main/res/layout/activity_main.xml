@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="50dp"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/textInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:hint="Multi Items"
+        android:layout_height="wrap_content">
+
+        <com.zeeshan.material.multiselectionspinner.MultiSelectionSpinner
+            android:id="@+id/multi_Selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusableInTouchMode="false"
+            android:importantForAutofill="no"
+            app:showSearch="true"
+            app:sort="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

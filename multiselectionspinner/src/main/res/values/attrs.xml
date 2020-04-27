@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MultiSelectionSpinner">
+        <attr name="showSearch" format="boolean" />
+        <attr name="hideTabsSearch" format="boolean" />
+        <attr name="label_color" format="color" />
+        <attr name="label_text_size" format="dimension" />
+        <attr name="label_hint" format="string" />
+        <attr name="label_alignment" format="integer" />
+        <attr name="disabled" format="boolean" />
+        <attr name="sort" format="boolean" />
+        <attr name="width_ratio" format="float" />
+        <attr name="enable_reselection" format="boolean" />
+        <attr name="clear_selection" format="boolean" />
+    </declare-styleable>
+
+</resources>

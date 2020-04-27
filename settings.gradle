@@ -1,0 +1,3 @@
+rootProject.name='MultiSelectionSpinner'
+include ':app'
+include ':multiselectionspinner'
