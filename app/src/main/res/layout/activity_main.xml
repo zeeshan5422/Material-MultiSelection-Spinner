@@ -11,9 +11,9 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/textInputLayoutStyle"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:hint="Multi Items"
-        android:layout_height="wrap_content">
+        android:hint="Select Multiple Items">
 
         <com.zeeshan.material.multiselectionspinner.MultiSelectionSpinner
             android:id="@+id/multi_Selection"
@@ -22,8 +22,10 @@
             android:clickable="true"
             android:focusableInTouchMode="false"
             android:importantForAutofill="no"
+            android:maxLines="1"
             app:showSearch="true"
-            app:sort="true" />
+            app:sort="true"
+            android:focusable="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

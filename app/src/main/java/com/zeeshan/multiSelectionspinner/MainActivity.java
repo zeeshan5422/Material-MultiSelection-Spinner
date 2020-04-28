@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         multiSelectionSpinner.setOnItemSelectedListener(new MultiSelectionSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(View view, boolean isSelected, int position) {
-                Toast.makeText(MainActivity.this, "On Item selected : " + isSelected, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "On Item selected : " + isSelected, Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onSelectionCleared() {
-                Toast.makeText(MainActivity.this, "All items are unselected", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "All items are unselected", Toast.LENGTH_SHORT).show();
             }
         });
     }

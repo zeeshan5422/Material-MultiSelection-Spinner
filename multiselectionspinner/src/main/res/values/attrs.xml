@@ -3,7 +3,6 @@
 
     <declare-styleable name="MultiSelectionSpinner">
         <attr name="showSearch" format="boolean" />
-        <attr name="hideTabsSearch" format="boolean" />
         <attr name="label_color" format="color" />
         <attr name="label_text_size" format="dimension" />
         <attr name="label_hint" format="string" />

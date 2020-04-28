@@ -48,7 +48,6 @@ public class MultiSelectionSpinner extends TextInputEditText {
 
     private boolean showSearch = false;
 
-    private boolean hideTabsSearch = false;
 
     private PopupWindow popupWindow = null;
     private float SCALE_RATIO = 1.0f;
@@ -89,7 +88,6 @@ public class MultiSelectionSpinner extends TextInputEditText {
                 0, 0);
         try {
             showSearch = a.getBoolean(R.styleable.MultiSelectionSpinner_showSearch, false);
-            hideTabsSearch = a.getBoolean(R.styleable.MultiSelectionSpinner_hideTabsSearch, false);
             labelAlignment = a.getInt(R.styleable.MultiSelectionSpinner_label_alignment, LABEL_ALIGN_CENTER);
             isDisabled = a.getBoolean(R.styleable.MultiSelectionSpinner_disabled, false);
             sort = a.getBoolean(R.styleable.MultiSelectionSpinner_sort, true);
@@ -248,9 +246,18 @@ public class MultiSelectionSpinner extends TextInputEditText {
                     break;
                 }
             }
+            StringBuilder builder = new StringBuilder();
 
             if (mSelectedItems != null && mSelectedItems.size() > 0) {
-                setText(mSelectedItems.get(0).toString());
+
+                builder.append(mSelectedItems.get(0));
+                if (mSelectedItems.size() > 1) {
+                    for (int i = 1; i < mSelectedItems.size(); i++) {
+                        builder.append(", ").append(mSelectedItems.get(i));
+                    }
+                }
+
+                setText(builder);
             } else {
                 setText("");
             }
@@ -295,7 +302,7 @@ public class MultiSelectionSpinner extends TextInputEditText {
         mRecyclerView.setAdapter(itemsAdapter);
 
         final EditText searchBox = (EditText) view.findViewById(R.id.search_field);
-        if (/*showSearch*/ !hideTabsSearch) {
+        if (showSearch) {
             searchBox.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -402,20 +409,21 @@ public class MultiSelectionSpinner extends TextInputEditText {
                         break;
                     }
                 }
-                if (isSelected) {
 
-                    int[][] states = new int[][] {
-                            new int[] { android.R.attr.state_enabled}, // enabled
-                            new int[] {-android.R.attr.state_enabled}, // disabled
-                            new int[] {-android.R.attr.state_checked}, // unchecked
-                            new int[] { android.R.attr.state_pressed}  // pressed
-                    };
+                int[][] states = new int[][]{
+                        new int[]{android.R.attr.state_enabled}, // enabled
+                        new int[]{-android.R.attr.state_enabled}, // disabled
+                        new int[]{-android.R.attr.state_checked}, // unchecked
+                        new int[]{android.R.attr.state_pressed}  // pressed
+                };
+
+                if (isSelected) {
 
                     if (ContextCompat.getColor(getContext(), R.color.colorAccent) != 0) {
                         holder.mTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
 
                         int colorValue = ContextCompat.getColor(getContext(), R.color.colorAccent);
-                        int[] colors = new int[] {
+                        int[] colors = new int[]{
                                 colorValue,
                                 colorValue,
                                 colorValue,
@@ -428,7 +436,7 @@ public class MultiSelectionSpinner extends TextInputEditText {
                         holder.mTextView.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
 
                         int colorValue = ContextCompat.getColor(getContext(), R.color.colorPrimary);
-                        int[] colors = new int[] {
+                        int[] colors = new int[]{
                                 colorValue,
                                 colorValue,
                                 colorValue,
@@ -440,6 +448,15 @@ public class MultiSelectionSpinner extends TextInputEditText {
                     }
                 } else {
                     holder.mTextView.setTextColor(Color.BLACK);
+                    int[] colors = new int[]{
+                            Color.BLACK,
+                            Color.BLACK,
+                            Color.BLACK,
+                            Color.BLACK
+                    };
+
+                    ColorStateList myList = new ColorStateList(states, colors);
+                    holder.checkBox.setButtonTintList(myList);
                 }
                 holder.checkBox.setChecked(isSelected);
             }
@@ -529,13 +546,6 @@ public class MultiSelectionSpinner extends TextInputEditText {
 
             private void onSelectionChange() {
                 setSelection(originalList.indexOf(filteredList.get(getAdapterPosition())), true);
-//                parent.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        popupWindow.dismiss();
-//
-//                    }
-//                }, POPUP_DISMISS_DELAY);
             }
         }
 
