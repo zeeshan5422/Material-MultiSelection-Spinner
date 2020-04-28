@@ -4,10 +4,10 @@ Material-MultiSelection-Spinner is a simple MultiSelection spinner which which i
 
 # template
 
-![](https://github.com/zeeshan5422/Material-MultiSelection-Spinner/tree/master/app/demo/demo.gif)
+![](https://github.com/zeeshan5422/Material-MultiSelection-Spinner/blob/master/app/demo/demo.gif)
 
 ## screenshots.
-![](https://github.com/zeeshan5422/Material-MultiSelection-Spinner/tree/master/app/demo/img-1.jpeg)
+![](https://github.com/zeeshan5422/Material-MultiSelection-Spinner/blob/master/app/demo/img-1.jpeg)
 ![](https://github.com/zeeshan5422/Material-MultiSelection-Spinner/tree/master/app/demo/img-2.jpeg)
 ![](https://github.com/zeeshan5422/Material-MultiSelection-Spinner/tree/master/app/demo/img-3.jpeg)
 
@@ -23,7 +23,7 @@ allprojects {
 			maven { url 'https://jitpack.io' }
 		}
 	}
-  ```
+```
   
 Then, add the library to your module build.gradle
 
@@ -31,7 +31,7 @@ Then, add the library to your module build.gradle
 dependencies {
 	        implementation 'com.github.zeeshan5422:Material-MultiSelection-Spinner:Tag'
 	}
-  ```
+```
   
   ## Features
 
@@ -74,11 +74,11 @@ There is a [sample](https://github.com/zeeshan5422/Material-MultiSelection-Spinn
             android:focusable="true" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    ```
+```
     
     # In Code
     
-    ```
+```
 
         multiSelectionSpinner = findViewById(R.id.multi_Selection);
         multiSelectionSpinner.setItems(getItems());
@@ -100,10 +100,10 @@ There is a [sample](https://github.com/zeeshan5422/Material-MultiSelection-Spinn
         return alphabetsList;
     }
     
-    ```
+ ```
     
     
     
-    That's it! :-)
+That's it! :-)
 
 if you are facing any kind of problem please let me know
